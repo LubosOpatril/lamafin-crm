@@ -9,7 +9,7 @@ exports.handler = async () => {
         error: "Chybí GOOGLE_CLIENT_ID nebo REDIRECT_URI",
         hasClientId: !!client_id,
         redirectUri: redirect_uri || null
-      }),
+      })
     };
   }
 
@@ -19,14 +19,13 @@ exports.handler = async () => {
     response_type: "code",
     scope: "https://www.googleapis.com/auth/gmail.readonly",
     access_type: "offline",
-    prompt: "consent",
+    prompt: "consent"
   });
 
   return {
     statusCode: 302,
     headers: {
-      Location: `https://accounts.google.com/o/oauth2/v2/auth?${params.toString()}`,
-    },
+      Location: `https://accounts.google.com/o/oauth2/v2/auth?${params.toString()}`
+    }
   };
-};
 };
